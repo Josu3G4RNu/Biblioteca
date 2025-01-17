@@ -34,6 +34,7 @@ public class Principal {
                 3. Listar autores registrados
                 4. Buscar autores por determinado año
                 5. Listar libros por idioma
+                0. Salir
                 """;
         while (!opcion.equals("0")) {
             System.out.println(menu);
@@ -92,6 +93,8 @@ public class Principal {
             libro.setAutor(autor);
         }
         libroRepositorio.save(libro);
+        System.out.println("El libro se ha registrado con éxito! \n" +
+                libro);
 
     }
 
@@ -114,7 +117,14 @@ public class Principal {
     }
 
     private void BuscarAutoresPorAnio() {
-
+        System.out.println("Ingresa el año al cual pertenece tu escritor: ");
+        var anio = teclado.nextInt();
+        List<Autor> autores = autorRepositorio.findAutoresByAnioNacimientoBetween(anio);
+        if (autores.isEmpty()) {
+            System.out.println("No hay autores registrados en esa epoca. Corre a registrar al primero");
+        } else {
+            autores.forEach(System.out::println);
+        }
     }
 
     private void BuscarLibrosRegistradosPorIdioma() {
