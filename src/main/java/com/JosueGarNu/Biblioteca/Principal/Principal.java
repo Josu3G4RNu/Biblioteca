@@ -11,6 +11,7 @@ import com.JosueGarNu.Biblioteca.Service.ConsumoAPI;
 import com.JosueGarNu.Biblioteca.Service.ConvierteDatos;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Principal {
@@ -71,7 +72,7 @@ public class Principal {
         var json = consumoAPI.obtenerDatos(URL_BASE + "search=" + libroABuscar);
         DatosAPI libro = conversor.obtenerDatos(json, DatosAPI.class);
 
-        if (libro.datosLibro().isEmpty() || libro == null) {
+        if (libro.datosLibro().isEmpty()) {
             System.out.println("\nNo se encontró el libro que buscas\n");
             muestraElMenu();
         } else {
@@ -81,7 +82,7 @@ public class Principal {
     }
 
     private void buscarLibro() {
-        Libro libro = new Libro(get_datos_libro());
+        Libro libro = new Libro(Objects.requireNonNull(get_datos_libro()));
         if (libroRepositorio.existsByTitulo(libro.getTitulo())) {
             System.out.println("\nEl libro ya existe en la base de datos\n");
             muestraElMenu();
@@ -142,6 +143,8 @@ public class Principal {
             Integer.parseInt(opcion);
             muestraElMenu();
         } catch (Exception e) {
+            System.out.println("Opción Invalida");
+            muestraElMenu();
         }
 
         try {
