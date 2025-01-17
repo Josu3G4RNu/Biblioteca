@@ -20,8 +20,8 @@ Es un sistema de consola que consume la API de Gutenex. Que a tráves de un men�
 Para instalar y configurar el programa, siga los siguientes pasos:
 1. Clona el repositorio: `git clone https://github.com/Josu3G4RNu/Biblioteca.git`
 2. Navega al directorio del proyecto: `cd Biblioteca`
-3. Compila el código: `javac src/main/java/com/JosueGarNu/Biblioteca/Principal/Principal.java`
-4. Ejecuta el programa: `java src/main/java/com/JosueGarNu/Biblioteca/Principal/Principal`
+3. Compila el código: `javac src/main/java/com/JosueGarNu/Biblioteca/BibliotecaApplication.java`
+4. Ejecuta el programa: `java src/main/java/com/JosueGarNu/Biblioteca/BibliotecaApplication`
 
 ### Uso 👷
 El programa se ejecuta desde la línea de comandos y ofrece una interfaz interactiva para gestionar la biblioteca. Los comandos disponibles se detallan a continuación:
